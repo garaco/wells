@@ -1,0 +1,58 @@
+{% extends 'template/temp.twig' %}
+
+{% block title 'Inicio' %}
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-3 col-md-3" style="width: 25%">
+      <a class="text-decoration-none" href="jornadas">
+        <div class="card" id="scale">
+          <img src="{{resource('img/horas.jpg')}}" class="card-img-top" alt="...">
+          <div class="card-body bg-primary">
+            <p class="card-text text-center text-white">Horas Extras.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-sm-3 col-md-3" style="width: 25%">
+      <a class="text-decoration-none" href="empleados">
+        <div class="card" id="scale">
+          <img src="{{resource('img/empleados.jpg')}}" class="card-img-top" alt="...">
+          <div class="card-body bg-primary">
+            <p class="card-text text-center text-white">Empleados.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-sm-3 col-md-3" style="width: 25%">
+      <a class="text-decoration-none" href="horarios">
+        <div class="card" id="scale">
+          <img src="{{resource('img/horarios.jpg')}}" class="card-img-top" alt="...">
+          <div class="card-body bg-primary">
+            <p class="card-text text-center text-white">Horarios.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-sm-3 col-md-3" style="width: 25%">
+      <a class="text-decoration-none" href="categorias">
+        <div class="card" id="scale">
+          <img src="{{resource('img/categorias.jpg')}}" class="card-img-top" alt="...">
+          <div class="card-body bg-primary">
+            <p class="card-text text-center text-white">Categorias.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+  </div>
+</div>
+
+{% endblock %}
