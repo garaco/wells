@@ -15,6 +15,7 @@ class UsuariosModel extends Model {
 	public $direccion;
 	public $telefono;
 	public $cp;
+	public $existen;
 
 	function __construct(){
 		self::$tablename = 'usuarios';
@@ -28,6 +29,7 @@ class UsuariosModel extends Model {
 		$this->direccion='';
 		$this->telefono='';
 		$this->cp = '';
+		$this->existen = '';
 	}
 	public function add(){
 		$query = "INSERT INTO ".self::$tablename." (IdUser, NombreUser, password, Nombres, Apellidos, email , Tipo, direccion, telefono, cp)
@@ -77,6 +79,13 @@ class UsuariosModel extends Model {
 		public static function getUser($id){
 			$sql = "SELECT IdUser,NombreUser,Nombres,Apellidos,Tipo as tipo,email,
 			aes_decrypt(password,'Quetzalcoatl') as password FROM ".self::$tablename." WHERE IdUser = '{$id}' ";
+			$query = Executor::doit($sql);
+
+			return Model::one($query[0],new UsuariosModel());
+		}
+
+		public static function existe($user){
+			$sql = "SELECT count(*) as existen from ".self::$tablename." where NombreUser = '{$user}'";
 			$query = Executor::doit($sql);
 
 			return Model::one($query[0],new UsuariosModel());

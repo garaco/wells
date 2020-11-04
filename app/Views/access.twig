@@ -15,8 +15,11 @@
 
   <div class="login container">
     <br><br>
+
     <div class="card w-100 border-primary">
+
       <div class="card-body">
+        <img class="mb-4" src="{{ resource('img/logo.png') }}" alt="" width="72" height="72">
         <form action="{{('access')}}" method="POST" class="form-signin">
 
          <h1 class="h3 mb-3 font-weight-normal">Por favor, ingrese sus datos.</h1>
@@ -24,7 +27,10 @@
          <div class="row">
            <div class="col-sm-4">
              <label class="sr-only">Nombre de Usuario</label>
-             <input type="text" name="user" class="form-control" placeholder="Nombre de usuario" required autocomplete="off" autofocus>
+             <input onkeyup="exist();" type="text" name="user" id="user" class="form-control" placeholder="Nombre de usuario" required autocomplete="off" autofocus>
+             <div class="col-sm-12" id="exist">
+
+             </div>
            </div>
 
            <div class="col-sm-4">
@@ -66,19 +72,22 @@
          <div class="row">
            <div class="col-sm-6">
              <label class="sr-only">Contraseña</label>
-             <input type="password" name="pass" class="form-control" placeholder="Contraseña" required>
+             <input type="password" name="pass" id="pass" class="form-control" placeholder="Contraseña" required>
            </div>
 
            <div class="col-sm-6">
              <label class="sr-only">Confirmar Contraseña</label>
-             <input type="password" name="pass2" class="form-control" placeholder="Contraseña" required>
+             <input type="password" name="pass2" id="pass2" class="form-control" placeholder="Contraseña" required onkeyup="password();">
            </div>
 
+           <div class="col-sm-12" id="error">
+
+           </div>
 
          </div>
          <br>
 
-         <button class="btn btn-lg btn-primary" type="submit">Registrar</button>
+         <button class="btn btn-lg btn-primary" id="btn" type="submit">Registrar</button>
 
        </form>
       </div>
@@ -88,12 +97,6 @@
   </div>
   <script type="text/javascript" src="{{ resource('jquery/jquery.min.js') }}"></script>
   <script type="text/javascript" src="{{ resource('bootstrap/js/bootstrap.js') }}"></script>
-  <script type="text/javascript">
-  setTimeout('close()',5000);
-  function close(){
-    $('.alert').alert('close')
-  }
-
-  </script>
+  <script type="text/javascript" src="{{ resource('js/validaciones.js') }}"></script>
 </body>
 </html>

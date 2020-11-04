@@ -37,5 +37,16 @@ class UsuariosController{
         redirect('cpanel/usuarios');
   	}
 
+		public function exist(){
+			$usuario = new UsuariosModel();
+			$datos = $usuario->existe($_POST['user']);
+
+			if($datos->existen>0){
+				return 'existe';
+			}else{
+				return 'no existe';
+			}
+
+		}
 
 }

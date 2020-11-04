@@ -12,6 +12,7 @@ class Route{
           ['url' => 'inicio', 						'ctrl' => 'Principal@index', 						      'type' => 'guest'],
           ['url' => 'registro', 						'ctrl' => 'AuthController@access', 						      'type' => 'guest'],
           ['url' => 'access', 						        'ctrl' => 'AuthController@registro', 				    		'type' => 'guest'],
+          ['url' => 'exist', 						        'ctrl' => 'usuariosController@exist', 				    		'type' => 'guest'],
 
           ['url' => 'home',					    'ctrl' => 'homeController@index',	    				      'type' => 'admin'],
 
