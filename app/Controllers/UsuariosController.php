@@ -10,23 +10,23 @@ class UsuariosController{
     }
 
     public function save(){
-          $reg = new UsuariosModel();
+          $save = new UsuariosModel();
           if($_POST['id'] != 0){
-              $reg = $reg->getById($_POST['id'],'IdUser');
+              $save = $save->getById($_POST['id'],'IdUser');
           }
 
-          $reg->NombreUser = $_POST['Usuario'];
-          $reg->Nombres = $_POST['Nombre'];
-          $reg->IdUser = $_POST['id'];
-          $reg->password = $_POST['password'];
-          $reg->Apellidos=$_POST['Apellidos'];
-          $reg->email = $_POST['email'];
-          $reg->tipo = 'admin';
+          $save->NombreUser = $_POST['Usuario'];
+          $save->Nombres = $_POST['Nombre'];
+          $save->IdUser = $_POST['id'];
+          $save->password = $_POST['password'];
+          $save->Apellidos=$_POST['Apellidos'];
+          $save->email = $_POST['email'];
+          $save->tipo = 'admin';
 
           if($_POST['id'] == 0){
-          	$reg->add();
+          	$save->add();
           }else{
-            $reg->update();
+            $save->update();
           }
   	}
 
