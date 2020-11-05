@@ -36,6 +36,10 @@ class Route{
   			   ['url' => 'categorias/save',				'ctrl' => 'categoriasController@save',	    					'type' => 'admin'],
            ['url' => 'categorias/del',				    'ctrl' => 'categoriasController@del',  						'type' => 'admin'],
 
+           ['url' => 'descuentos',					    'ctrl' => 'descuentosController@index',	    				'type' => 'admin'],
+           ['url' => 'descuentos/save',				'ctrl' => 'descuentosController@save',	    					'type' => 'admin'],
+           ['url' => 'descuentos/del',				    'ctrl' => 'descuentosController@del',  						'type' => 'admin'],
+
            ['url' => 'logout', 					        'ctrl' => 'AuthController@logout', 					    	'type' => 'admin'],
     		   ['url' => 'auth', 						        'ctrl' => 'AuthController@login', 				    		'type' => 'admin'],
 
