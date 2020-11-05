@@ -4,6 +4,7 @@ namespace App\Request;
 
 use App\Models\ProductosModel;
 use App\Models\CategoriasModel;
+use App\Models\ProveedoresModel;
 
 class productosRequest {
     function Agregar(){
@@ -59,7 +60,7 @@ class productosRequest {
 
                 <div class="col-md-4 ">
                     <label for="surname" class="control-label">Stock</label>
-                    <input type="text" name="stock" id="stock" value="<?= $productos->stock; ?>" class="form-control" required autocomplete="off">
+                    <input type="number" name="stock" id="stock" value="<?= $productos->stock; ?>" class="form-control" required autocomplete="off">
                 </div>
 
             </div>
@@ -67,10 +68,10 @@ class productosRequest {
             <div class="row form-group">
                 <div class="col-md-6">
                     <label for="name" class="control-label">Proveedor</label>
-                    <?php $categoria = new CategoriasModel();
-                      $categoria = $categoria->getAll('id'); ?>
+                    <?php $Proveedor = new ProveedoresModel();
+                      $Proveedor = $Proveedor->getAll('id'); ?>
                       <select class="form-control" name="proveedor">
-                        <?php foreach ($categoria as $c) {
+                        <?php foreach ($Proveedor as $c) {
                           ?> <option value="<?= $c->id; ?>" <?= ($c->id == $productos->id_proveedor)? 'selected' : '' ; ?>> <?= $c->nombre; ?> </option> <?php
                         } ?>
                       </select>
@@ -101,7 +102,7 @@ class productosRequest {
         $productos = $productos->getById($_POST['id'],'id'); ?>
         <form id="form" action="<?= route($_POST['model'] . '/del'); ?>" method="POST" class="form-horizontal">
             <input type="hidden" name="id" value="<?= $productos->id; ?>">
-            <h5>Desea eliminar la categoria
+            <h5>Desea eliminar el producto
                 '<?= $productos->nombre; ?>
                 '?</h5>
 

@@ -32,8 +32,8 @@ class ProductosModel extends Model {
 		}
 
 		public function add(){
-			$query = "INSERT INTO ".self::$tablename." (IdProducto, Codigo, Nombre, IdProveedor, Descripcion, IdEmpresa, IdLinea, Precio_ad, Precio_ven, Activo)
-			VALUES (0, '{$this->Codigo}', '{$this->Nombre}', '{$this->IdProveedor}', '{$this->Descripcion}', {$this->IdEmpresa}, {$this->IdLinea},  {$this->Precio_ad}, {$this->Precio_ven}, '{$this->Activo}')";
+			$query = "INSERT INTO ".self::$tablename." (id, codigo, nombre, id_categoria, precio, modelo, descripcion, stock, id_proveedor, imagen)
+			VALUES (0, '{$this->codigo}', '{$this->nombre}', {$this->id_categoria}, {$this->precio}, '{$this->modelo}', '{$this->descripcion}', {$this->stock}, {$this->id_proveedor}, '$this->imagen')";
 			$sql = Executor::doit($query);
 
 			return $sql[1];

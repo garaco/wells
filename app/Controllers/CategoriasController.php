@@ -7,7 +7,7 @@ class CategoriasController{
       $categoria = new CategoriasModel();
       $categorias = $categoria->getAll('id');
 
-			return view('Catalogos/categorias.twig', ['categoria' => $categorias, 'modelo' => 'Categorias','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
+			return view('Catalogos/categorias.twig', ['categoria' => $categorias, 'modelo' => 'categorias','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
     }
 
     public function save(){

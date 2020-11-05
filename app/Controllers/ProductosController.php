@@ -27,9 +27,7 @@ class ProductosController{
 			$save->precio=$_POST['precio'];
 			$save->modelo=$_POST['modelo'];
 			$save->stock=$_POST['stock'];
-			// if(isset($_POST['imagen'])){
-			// 		$save->imagen='public/resources/'.$_POST['imagen'];
-			// }
+			
 
 			if($_FILES['imagen']['name'] != null){
         $explode = explode("/", $_FILES['imagen']['type']);
@@ -49,7 +47,7 @@ class ProductosController{
 
     public function del(){
   	    $del = new ProductosModel();
-          $del->delById($_POST['id'],'IdProducto');
+          $del->delById($_POST['id'],'id');
 
   	}
 }

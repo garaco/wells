@@ -24,6 +24,14 @@ class Route{
   			   ['url' => 'productos/save',				'ctrl' => 'productosController@save',	    					'type' => 'admin'],
            ['url' => 'productos/del',				    'ctrl' => 'productosController@del',  						'type' => 'admin'],
 
+           ['url' => 'proveedores',					    'ctrl' => 'proveedoresController@index',	    				'type' => 'admin'],
+  			   ['url' => 'proveedores/save',				'ctrl' => 'proveedoresController@save',	    					'type' => 'admin'],
+           ['url' => 'proveedores/del',				    'ctrl' => 'proveedoresController@del',  						'type' => 'admin'],
+
+           ['url' => 'envios',					    'ctrl' => 'enviosController@index',	    				'type' => 'admin'],
+  			   ['url' => 'envios/save',				'ctrl' => 'enviosController@save',	    					'type' => 'admin'],
+           ['url' => 'envios/del',				    'ctrl' => 'enviosController@del',  						'type' => 'admin'],
+
            ['url' => 'categorias',					    'ctrl' => 'categoriasController@index',	    				'type' => 'admin'],
   			   ['url' => 'categorias/save',				'ctrl' => 'categoriasController@save',	    					'type' => 'admin'],
            ['url' => 'categorias/del',				    'ctrl' => 'categoriasController@del',  						'type' => 'admin'],
