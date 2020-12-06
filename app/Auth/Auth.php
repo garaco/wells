@@ -33,7 +33,7 @@ class Auth{
     public function logout() {
         session_unset();
         session_destroy();
-        redirect('login');
+        redirect('index');
     }
 
 }

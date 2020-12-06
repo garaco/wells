@@ -4,49 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="{{ resource('bootstrap/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ resource('bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ resource('css/custom-siderbar.css') }}">
+    <link rel="stylesheet" href="{{ resource('css/style.css') }}">
     <link rel="stylesheet" href="{{ resource('font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ resource('css/login.css') }}">
+    <link rel="stylesheet" href="{{ resource('datatables/datatables.min.css') }}" >
+    <link rel="stylesheet" href="{{ resource('datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}" >
     <link rel="icon" type="image/png" href="{{ resource('img/logo.png') }}">
 
     <title>Ingresar | Wells</title>
 </head>
+
 <body class="text-center">
+  {% include 'template/navbar.twig' %}
 
-  <div class="login container">
-    <br><br>
-    <form action="{{('auth')}}" method="POST" class="form-signin">
-      <img class="mb-4" src="{{ resource('img/logo.png') }}" alt="" width="72" height="72">
-     <h1 class="h3 mb-3 font-weight-normal">Por favor, ingrese sus datos.</h1>
+  <img style="width:100%;" src="{{ resource('img/banner.jpg') }}" alt="...">
+  <br><br>
+  <div class="row">
+    {% for g in productos %}
+    <div class="col-sm-4">
+      <div class="card">
+        <div style="justify-content:center;">
+            <img src="{{g.imagen}}" style="width:50%;" class="card-img-top" alt="...">
+        </div>
 
-     <label for="inputEmail" class="sr-only">Usuario</label>
-     <input type="text" name="user" class="form-control" placeholder="Nombre de usuario" required autocomplete="off" autofocus>
-     <br>
-     <label for="inputPassword" class="sr-only">Contraseña</label>
-     <input type="password" name="pass" class="form-control" placeholder="Contraseña" required>
+      <div class="card-body">
+        <h5 class="card-title">{{ g.nombre }}</h5>
+        <p class="card-text">Precio: {{ g.precio }}</p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="info('{{ g.nombre }}','{{ g.descripcion }}');">
+        Ver Más
+        </button>
+      </div>
+    </div>
+    </div>
 
-     <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
-
-     <a href="registro">Registrase</a>
-
-   </form>
-   {% if msg  %}
-   <div class="alert alert-danger alert-dismissible fade show" style="margin:0; padding:0;" role="alert">
-      <p style="font-size:14px;margin-top:5px;" >Usuario y/o contraseña son incorrectos.
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-       <span aria-hidden="true">&times;</span>
-     </button>
-   </div>
-   {% endif %}
+    {% endfor %}
   </div>
+  <br><br>
+
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="titulo" class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="cuerpo" style="text-align: justify;" ></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <script type="text/javascript" src="{{ resource('jquery/jquery.min.js') }}"></script>
   <script type="text/javascript" src="{{ resource('bootstrap/js/bootstrap.js') }}"></script>
-  <script type="text/javascript">
-  setTimeout('close()',5000);
-  function close(){
-    $('.alert').alert('close')
-  }
-
-  </script>
+  <script type="text/javascript" src="{{ resource('js/principal.js') }}"></script>
 </body>
 </html>

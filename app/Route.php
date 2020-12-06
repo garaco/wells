@@ -8,7 +8,9 @@ class Route{
             //url
           ['url' => '/', 	        						'ctrl' => 'AuthController@index', 						'type' => 'guest'],
 
-          ['url' => 'login', 						'ctrl' => 'AuthController@index', 						      'type' => 'guest'],
+          ['url' => 'index', 						'ctrl' => 'AuthController@index', 						      'type' => 'guest'],
+          ['url' => 'login', 						'ctrl' => 'AuthController@logeo', 						      'type' => 'guest'],
+
           ['url' => 'inicio', 						'ctrl' => 'Principal@index', 						      'type' => 'guest'],
           ['url' => 'registro', 						'ctrl' => 'AuthController@access', 						      'type' => 'guest'],
           ['url' => 'access', 						        'ctrl' => 'AuthController@registro', 				    		'type' => 'guest'],

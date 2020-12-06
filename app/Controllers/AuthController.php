@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Auth\Auth;
+use App\Models\ProductosModel;
 
 class AuthController {
     protected $auth;
@@ -12,10 +13,17 @@ class AuthController {
     }
 
     public function index() {
+      $proc = new ProductosModel();
+      $procducto = $proc->getAll('id');
+
+      return view('index.twig',['productos' => $procducto]);
+    }
+
+    public function logeo() {
   		if(isset($_GET['msg'])) {
-  			return view('index.twig', ['msg' => $_GET['msg']]);
+  			return view('login.twig', ['msg' => $_GET['msg']]);
   		}elseif(!isset($_SESSION['Username'])) {
-  			return view('index.twig');
+  			return view('login.twig');
   		}else {
   			redirect('home');
   		}
