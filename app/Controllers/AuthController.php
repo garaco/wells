@@ -15,8 +15,12 @@ class AuthController {
     public function index() {
       $proc = new ProductosModel();
       $procducto = $proc->getAll('id');
+      if(isset($_SESSION['Username'])){
+          return view('index.twig',['productos' => $procducto, 'user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
+      }else{
+        return view('index.twig',['productos' => $procducto]);
+      }
 
-      return view('index.twig',['productos' => $procducto]);
     }
 
     public function logeo() {
@@ -25,7 +29,7 @@ class AuthController {
   		}elseif(!isset($_SESSION['Username'])) {
   			return view('login.twig');
   		}else {
-  			redirect('home');
+  			redirect('index');
   		}
     }
 
@@ -45,7 +49,7 @@ class AuthController {
     	      $_SESSION['Nombre']  = $auth->Nombres;
     		    $_SESSION['IdUser']    = $auth->IdUser;
             $_SESSION['type']  = $auth->Tipo;
-			 redirect('home');
+			 redirect('index');
         } else {
             redirect('login?msg=error402');
         }
@@ -69,7 +73,7 @@ class AuthController {
         $_SESSION['Nombre']  = $name;
         $_SESSION['IdUser']    = $auth;
         $_SESSION['type']  = 'admin';
-       redirect('home');
+       redirect('index');
 
     }
 

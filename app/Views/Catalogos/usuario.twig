@@ -24,7 +24,9 @@
                 {% else %}
                   Cliente
                 {% endif %} </td>
+
                 <td class="text-center">
+                  {% if d.Tipo == 'admin' %}
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                       <button type="button" class="btn btn-sm btn-primary" id="option1" data-toggle="modal" data-target="#operationModal" data-id="{{ d.IdUser }}" data-model="{{ modelo }}" data-operation="Editar">
                           <i class="fa fa-edit"></i>
@@ -33,6 +35,7 @@
                           <i class="fa fa-trash"></i>
                       </button>
                     </div>
+                  {% endif %}
                 </td>
             </tr>
         {% endfor %}

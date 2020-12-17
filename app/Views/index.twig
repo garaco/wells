@@ -17,51 +17,115 @@
 <body class="text-center">
   {% include 'template/navbar.twig' %}
 
-  <img style="width:100%;" src="{{ resource('img/banner.jpg') }}" alt="...">
-  <br><br>
-  <div class="row">
-    {% for g in productos %}
-    <div class="col-sm-4">
-      <div class="card">
-        <div style="justify-content:center;">
-            <img src="{{g.imagen}}" style="width:50%;" class="card-img-top" alt="...">
+  <div  id="wrapper">
+      {% include 'template/siderbar.twig' %}
+
+
+    <img style="width:100%;" src="{{ resource('img/banner.jpg') }}" alt="...">
+    <br><br>
+    <div class="row">
+      {% for g in productos %}
+      <div class="col-sm-4">
+        <div class="card">
+          <div style="justify-content:center;">
+              <img src="{{g.imagen}}" style="width:50%;" class="card-img-top" alt="...">
+          </div>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ g.nombre }}</h5>
+          <p class="card-text">Precio: {{ g.precio }}</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="info('{{ g.nombre }}','{{ g.descripcion }}');">
+          Ver Más
+          </button>
         </div>
-
-      <div class="card-body">
-        <h5 class="card-title">{{ g.nombre }}</h5>
-        <p class="card-text">Precio: {{ g.precio }}</p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="info('{{ g.nombre }}','{{ g.descripcion }}');">
-        Ver Más
-        </button>
       </div>
+      </div>
+
+      {% endfor %}
     </div>
+    <br><br>
+    <hr>
+    <section id="distribuidores-index">
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="page-header">
+                  <h1>Nuestra Sucursal<small style="color: #333;"> <i>Movere Sport (UBICADO EN PLAZA LA FUENTE) </i></small></h1>
+                </div>
+                <br><br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.0568675619935!2d-95.21239911562954!3d18.44933072573461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c2721db832522b%3A0xba386fb61663bef4!2sCentro%20Comercial%20La%20Fuente!5e0!3m2!1ses-419!2smx!4v1573448403690!5m2!1ses-419!2smx" width="900" height="450" frameborder="5" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </section>
+    <br><br>
+
+    <div style="background: rgba(12, 165, 231); color: rgb(255, 255, 255);">
+      <div class="container">
+          <div class="page-header">
+            <img class="img-responsive center-all-contens" src="{{ resource('img/logo.png') }}" style="width: 100px; height: 100px;">
+            <h1><small class="tittles-pages-logo">WELL'S HARMONY</small></h1>
+          </div>
+          <div class="container">
+            <h5>
+              WELL´S HARMONY es una marca registrada preocupada por la calidad de vida de las personas, por lo cual se ofrecen productos naturales capaces de complementar su alimentación. En la elaboración de los productos de la marca WELL´S HARMONY, se emplean los extractos más puros y de mejor calidad, además de materia prima de última tecnología. Vendemos productos naturales capaces de complementar la nutrición de nuestros clientes.
+            </h5>
+            <br>
+            <div class="row">
+              <div class="col-sm-6">
+                <strong> Misión </strong><br>
+                <h5>Mejorar la calidad de vida de las personas con productos de calidad.</h5>
+              </div>
+
+              <div class="col-sm-6">
+                <strong> Visión </strong><br>
+                <h5>Ser una marca reconocida a nivel nacional por la calidad de sus productos.</h5>
+              </div>
+            </div>
+            <br>
+            <h4>“MOVIMIENTOS FIRMES Y SEGUROS CON WELL´S HARMONY”.</h4>
+            <br>
+            <strong> Contacto </strong><br>
+            <h4> <u>2941109196</u></h4>
+          </div>
+      </div>
+      <br><br>
     </div>
 
-    {% endfor %}
-  </div>
-  <br><br>
 
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 id="titulo" class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="cuerpo" style="text-align: justify;" ></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="titulo" class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="cuerpo" style="text-align: justify;" ></p>
+          <div style="display:none;" id="section-table">
+            <table id="table" class="table thead-light table-bordered table-condensed table-hover">
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Preio</th>
+              </tr>
+              <tbody id="table-body">
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
   <script type="text/javascript" src="{{ resource('jquery/jquery.min.js') }}"></script>
   <script type="text/javascript" src="{{ resource('bootstrap/js/bootstrap.js') }}"></script>
   <script type="text/javascript" src="{{ resource('js/principal.js') }}"></script>
+  <script type="text/javascript" src="{{ resource('js/script.js') }}"></script>
 </body>
 </html>
