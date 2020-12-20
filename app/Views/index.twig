@@ -33,10 +33,24 @@
 
         <div class="card-body">
           <h5 class="card-title">{{ g.nombre }}</h5>
-          <p class="card-text">Precio: {{ g.precio }}</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="info('{{ g.nombre }}','{{ g.descripcion }}');">
-          Ver Más
-          </button>
+          <p class="card-text">Precio: ${{ g.precio }}</p>
+          <div class="row">
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="info('{{ g.nombre }}','{{ g.descripcion }}');">
+              Ver Más
+              </button>
+            </div>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" name="cantiad{{ g.id }}" id="cantiad{{ g.id }}" value="0">
+              <input type="hidden" class="form-control" name="precio{{ g.id }}" id="precio{{ g.id }}" value="{{ g.precio }}">
+              <input type="hidden" class="form-control" name="nombre{{ g.id }}" id="nombre{{ g.id }}" value="{{ g.nombre }}">
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-success" name="button" onclick="addProduct({{ g.id }});">Añadir</button>
+            </div>
+          </div>
+
+
         </div>
       </div>
       </div>
@@ -90,7 +104,6 @@
       <br><br>
     </div>
 
-
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -108,6 +121,7 @@
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Preio</th>
+                <th>Total por producto</th>
               </tr>
               <tbody id="table-body">
 
@@ -117,6 +131,8 @@
 
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="compra('{{user}}');">Realizar Compra</button>
+          <button type="button" class="btn btn-danger" onclick="vaciar();">Vaciar Carrito</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
@@ -126,6 +142,6 @@
   <script type="text/javascript" src="{{ resource('jquery/jquery.min.js') }}"></script>
   <script type="text/javascript" src="{{ resource('bootstrap/js/bootstrap.js') }}"></script>
   <script type="text/javascript" src="{{ resource('js/principal.js') }}"></script>
-  <script type="text/javascript" src="{{ resource('js/script.js') }}"></script>
+  <script type="text/javascript" src="{{ resource('js/sweetalert2.js') }}"></script>
 </body>
 </html>

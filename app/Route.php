@@ -17,6 +17,9 @@ class Route{
           ['url' => 'exist', 						        'ctrl' => 'usuariosController@exist', 				    		'type' => 'guest'],
 
           ['url' => 'home',					    'ctrl' => 'homeController@index',	    				      'type' => 'admin'],
+          ['url' => 'home/add',					    'ctrl' => 'homeController@add',	    				      'type' => 'guest'],
+          ['url' => 'home/pendiente',					    'ctrl' => 'homeController@pendiente',	    				      'type' => 'guest'],
+          ['url' => 'home/limpiar',					    'ctrl' => 'homeController@limpiar',	    				      'type' => 'guest'],
 
            ['url' => 'usuarios',					    'ctrl' => 'usuariosController@index',	    				'type' => 'admin'],
   			   ['url' => 'usuarios/save',				'ctrl' => 'usuariosController@save',	    					'type' => 'admin'],
