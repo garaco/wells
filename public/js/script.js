@@ -26,6 +26,17 @@ $(function () {
     var accordion = new Accordion($('.sidebar-nav'));
 });
 
+function tipo(){
+  let valor = $("#metodo").val();
+
+  if(valor=='tarjeta'){
+    $("#deposito").css("display","none");
+    $("#tarjeta").css("display","block");
+  }else{
+    $("#tarjeta").css("display","none");
+    $("#deposito").css("display","block");
+  }
+}
 
 $(document).ready(function() {
     $('#table').DataTable(

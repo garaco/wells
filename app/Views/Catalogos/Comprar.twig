@@ -32,18 +32,19 @@
     <br>
     <div class="col-sm-4">
       <label for="">Selecione metodo de pago:</label>
-      <select class="form-control" name="metodo" id="metodo">
+      <select class="form-control" name="metodo" id="metodo" onchange="tipo();">
         <option value="tarjeta">Tarjeta</option>
         <option value="deposito">Deposito</option>
       </select>
-      <div class="col-sm-12">
-        <div id="deposito">
+      <div class="col-sm-12" >
+        <div id="deposito" style="display:none;">
             <p>Realiazr el deposito a la siguente cuenta <strong>374646464</strong>, en cuanto se realice el depisto subir el comprobante para poder realizar su envio.</p>
         </div>
 
       </div>
       <div class="col-sm-12">
-          <div class="row" id="tarjeta">
+        <div id="tarjeta">
+          <div class="row" >
             <div class="col-sm-12">
               <label for="">Nombre Completo:</label>
               <input class="form-control" type="text" name="tarjeta" value="">
@@ -69,11 +70,14 @@
               <input class="form-control" type="text" name="tarjeta" value="">
             </div>
           </div>
+        </div>
+
       </div>
-      <br><br>
+      <br>
       <div class="col-sm-12">
         <button class="btn btn-primary" type="button" name="button" id="pagar" >Comprar</button>
       </div>
+      <br>
     </div>
 
 
