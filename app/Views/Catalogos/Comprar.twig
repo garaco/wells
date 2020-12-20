@@ -1,0 +1,83 @@
+{% extends 'template/temp.twig' %}
+
+{% block title 'Finalizar Comprar' %}
+
+{% block body %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <table id="table" class="table thead-light table-bordered table-condensed table-hover">
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Preio</th>
+          <th>Total por producto</th>
+        </tr>
+        <tbody id="table-body">
+          {% for t in table %}
+            <tr>
+              <td>{{t.nombre}}</td>
+              <td>{{t.cantidad}}</td>
+              <td>${{t.precio|number_format(2, '.', ',')}}</td>
+              <td>${{t.total|number_format(2, '.', ',')}}</td>
+            </tr>
+          {% endfor %}
+          <tr> <td colspan="3" >Sub Total</td> <td class="table-primary">${{total|number_format(2, '.', ',')}}</td> </tr>
+          <tr> <td colspan="3" >Costo de envio </td> <td class="table-warning">${{costo|number_format(2, '.', ',')}}</td> </tr>
+          <tr class="bg-success" style="color:#fff;"> <td colspan="3" > <strong>Total</strong> </td> <td> <strong> ${{(costo+total)|number_format(2, '.', ',')}}</strong> </td> </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="col-sm-4">
+      <label for="">Selecione metodo de pago:</label>
+      <select class="form-control" name="metodo" id="metodo">
+        <option value="tarjeta">Tarjeta</option>
+        <option value="deposito">Deposito</option>
+      </select>
+      <div class="col-sm-12">
+        <div id="deposito">
+            <p>Realiazr el deposito a la siguente cuenta <strong>374646464</strong>, en cuanto se realice el depisto subir el comprobante para poder realizar su envio.</p>
+        </div>
+
+      </div>
+      <div class="col-sm-12">
+          <div class="row" id="tarjeta">
+            <div class="col-sm-12">
+              <label for="">Nombre Completo:</label>
+              <input class="form-control" type="text" name="tarjeta" value="">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="">Numero de Tarjeta:</label>
+              <input class="form-control" type="text" name="tarjeta" value="">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="">MM:</label>
+              <input class="form-control" type="text" name="tarjeta" value="">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="">AAAA:</label>
+              <input class="form-control" type="text" name="tarjeta" value="">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="">CV:</label>
+              <input class="form-control" type="text" name="tarjeta" value="">
+            </div>
+          </div>
+      </div>
+      <br><br>
+      <div class="col-sm-12">
+        <button class="btn btn-primary" type="button" name="button" id="pagar" >Comprar</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -109,6 +109,6 @@ function compra(id){
   if(id==null){
     Swal.fire('Por favor inicie sesion para poder realizar la compra')
   }else{
-    alert("ya inicio session");
+      window.location=url_request+"compra";
   }
 }

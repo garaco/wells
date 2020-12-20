@@ -21,6 +21,8 @@ class Route{
           ['url' => 'home/pendiente',					    'ctrl' => 'homeController@pendiente',	    				      'type' => 'guest'],
           ['url' => 'home/limpiar',					    'ctrl' => 'homeController@limpiar',	    				      'type' => 'guest'],
 
+          ['url' => 'compra',					    'ctrl' => 'ComprasController@index',	    				      'type' => 'cliente'],
+
            ['url' => 'usuarios',					    'ctrl' => 'usuariosController@index',	    				'type' => 'admin'],
   			   ['url' => 'usuarios/save',				'ctrl' => 'usuariosController@save',	    					'type' => 'admin'],
            ['url' => 'usuarios/del',				    'ctrl' => 'usuariosController@del',  						'type' => 'admin'],
