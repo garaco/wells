@@ -21,6 +21,10 @@ class Route{
           ['url' => 'home/pendiente',					    'ctrl' => 'homeController@pendiente',	    				      'type' => 'guest'],
           ['url' => 'home/limpiar',					    'ctrl' => 'homeController@limpiar',	    				      'type' => 'guest'],
 
+          ['url' => 'ventas',					    'ctrl' => 'VentasController@index',	    				      'type' => 'admin'],
+          ['url' => 'ventas/save',					    'ctrl' => 'VentasController@save',	    				      'type' => 'admin'],
+          ['url' => 'pendientes',					    'ctrl' => 'VentasController@pendientes',	    				      'type' => 'admin'],
+
           ['url' => 'compra',					    'ctrl' => 'ComprasController@index',	    				      'type' => 'cliente'],
           ['url' => 'compra/save',					    'ctrl' => 'ComprasController@save',	    				      'type' => 'cliente'],
           ['url' => 'compra/user',					    'ctrl' => 'ComprasController@compras',	    				      'type' => 'cliente'],

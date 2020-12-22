@@ -63,6 +63,11 @@ class ComprasModel extends Model {
 			Executor::doit($sql);
 		}
 
+		public function updateStatus(){
+			$sql="UPDATE ".self::$tablename." SET estatus = '{$this->estatus}', descripcion = '{$this->direccion}' WHERE id = {$this->id}";
+			Executor::doit($sql);
+		}
+
 
 		public function getCode($id){
 			$sql = "select e.precio as envio from envios as e where e.cp = (select u.cp from usuarios as u where u.IdUser = $id)";
@@ -84,6 +89,21 @@ class ComprasModel extends Model {
 							inner join venta as v on v.id = id_venta
 							where v.id_user = $id";
 			$query = Executor::doit($sql);
+		 }
+
+			public function getAllVenta($status){
+				$sql = "select * from venta where estatus = '$status' order by id desc";
+				$query = Executor::doit($sql);
+
+				return self::many($query[0],new ComprasModel());
+			}
+
+			public function getAllVentaDet($status){
+				$sql = "select *,(select nombre from producto where id = id_producto) as producto
+								from venta_detalle
+								inner join venta as v on v.id = id_venta
+								where v.estatus = '$status'";
+				$query = Executor::doit($sql);
 
 			return self::many($query[0],new ComprasModel());
 		}

@@ -1,6 +1,6 @@
 {% extends 'template/temp.twig' %}
 
-{% block title 'Compras' %}
+{% block title 'Ventas' %}
 
 {% block body %}
 
@@ -14,18 +14,35 @@
       <label>Precio: ${{g.total_pagar|number_format(2, '.', ',')}}</label>
       <p class="card-text">Direccion: {{g.direccion}}</p>
       <p class="card-text">Método de Pago: {{g.tipo}}</p>
-      {% if g.tipo == 'Deposito' and  g.tiket == '' %}
+      {% if g.estatus == 'En Proceso' %}
       <hr>
-      <form action="{{route('compra/cargar')}}" method="post" enctype="multipart/form-data">
+      {% if g.tipo == 'Deposito' %}
+      <label>Recibo de pago</label>
+      <img src="{{g.tiket}}" width="160" height="160">
+      {% endif %}
+
+      <form action="{{route('ventas/save')}}" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-sm-2">
-              <p>Subir comprobante de pago</p>
+            <label>Cambiar estatus</label>
           </div>
 
-          <div class="col-sm-8">
-              <input class="form-control" type="file" name="image" accept="image/*" value="" required>
+          <div class="col-sm-3">
+              <select class="form-control" name="estatus" id="estatus">
+                  <option value="En Proceso">En Proceso</option>
+                  <option value="Enviado">Enviado</option>
+              </select>
+
               <input type="hidden" name="id" value="{{g.id}}">
           </div>
+
+          <div class="col-sm-2">
+            <label>Codigo de seguimiento</label>
+          </div>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" name="codigo" value="">
+          </div>
+
           <div class="col-sm-2">
             <button type="submit" class="btn btn-success" name="button"><i class="fa fa-check" aria-hidden="true"></i></button>
           </div>

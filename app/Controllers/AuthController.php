@@ -49,6 +49,7 @@ class AuthController {
     	      $_SESSION['Nombre']  = $auth->Nombres;
     		    $_SESSION['IdUser']    = $auth->IdUser;
             $_SESSION['type']  = $auth->Tipo;
+            $_SESSION['contador']=0;
 			 redirect('index');
         } else {
             redirect('login?msg=error402');
