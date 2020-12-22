@@ -24,6 +24,8 @@ class Route{
           ['url' => 'compra',					    'ctrl' => 'ComprasController@index',	    				      'type' => 'cliente'],
           ['url' => 'compra/save',					    'ctrl' => 'ComprasController@save',	    				      'type' => 'cliente'],
           ['url' => 'compra/user',					    'ctrl' => 'ComprasController@compras',	    				      'type' => 'cliente'],
+          ['url' => 'compra/cargar',					    'ctrl' => 'ComprasController@cargar',	    				      'type' => 'cliente'],
+
 
           ['url' => 'usuarios',					    'ctrl' => 'usuariosController@index',	    				'type' => 'admin'],
   			  ['url' => 'usuarios/save',				'ctrl' => 'usuariosController@save',	    					'type' => 'admin'],

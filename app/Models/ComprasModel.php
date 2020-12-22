@@ -15,6 +15,7 @@ class ComprasModel extends Model {
 	public $tiket;
 	public $direccion;
 	public $envio;
+	public $tipo;
 	public $id_venta;
 	public $cantidad;
 	public $id_producto;
@@ -32,6 +33,7 @@ class ComprasModel extends Model {
 			$this->descripcion='';
 			$this->tiket='';
 			$this->direccion='';
+			$this->tipo='';
 			$this->envio=0;
 			$this->id_venta=0;
 			$this->cantidad=0;
@@ -41,8 +43,8 @@ class ComprasModel extends Model {
 		}
 
 		public function add(){
-			$query = "INSERT INTO ".self::$tablename." (id, id_user, descuento, total_pagar, estatus, descripcion, tiket, direccion)
-			VALUES (0, {$this->id_user}, {$this->descuento}, {$this->total_pagar}, '{$this->estatus}', '', '', '{$this->direccion}')";
+			$query = "INSERT INTO ".self::$tablename." (id, id_user, descuento, total_pagar, estatus, descripcion, tiket, direccion, tipo)
+			VALUES (0, {$this->id_user}, {$this->descuento}, {$this->total_pagar}, '{$this->estatus}', '', '', '{$this->direccion}', '{$this->tipo}')";
 			$sql = Executor::doit($query);
 
 			return $sql[1];
@@ -57,12 +59,13 @@ class ComprasModel extends Model {
 		}
 
 		public function update(){
-
+			$sql="UPDATE ".self::$tablename." SET tiket = '{$this->tiket}' WHERE id = {$this->id}";
+			Executor::doit($sql);
 		}
 
 
 		public function getCode($id){
-			$sql = "select e.cp as envio from envios as e where e.cp = (select u.cp from usuarios as u where u.IdUser = $id)";
+			$sql = "select e.precio as envio from envios as e where e.cp = (select u.cp from usuarios as u where u.IdUser = $id)";
 			$query = Executor::doit($sql);
 
 			return self::one($query[0],new ComprasModel());

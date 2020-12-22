@@ -29,7 +29,7 @@ $(function () {
 function tipo(){
   let valor = $("#metodo").val();
 
-  if(valor=='tarjeta'){
+  if(valor=='Tarjeta'){
     $("#deposito").css("display","none");
     $("#tarjeta").css("display","block");
   }else{
@@ -40,9 +40,8 @@ function tipo(){
 
 function pagar(){
   let valor = $("#metodo").val();
-  var url_request = window.location.protocol + "//" + window.location.host + "/wells/";
 
-  if(valor=='tarjeta'){
+  if(valor=='Tarjeta'){
     let name = $("#name").val();
     let number = $("#number").val();
     let mes = $("#mes").val();
@@ -52,14 +51,27 @@ function pagar(){
     if(name=="" || number=="" || mes=="" || year=="" || cv==""){
       Swal.fire('Por favor llene todos los campos.');
     }else{
-      window.location=url_request+"compra/save";
-
+      save(valor);
     }
   }else{
-    window.location=url_request+"compra/save";
+    save(valor);
   }
 
 
+}
+
+function save(tipo){
+  var url_request = window.location.protocol + "//" + window.location.host + "/wells/";
+  $.ajax({
+    url: url_request+"compra/save",
+    type: 'POST',
+    data: {
+        tipo: tipo
+    },
+    success: function (data) {
+      window.location=url_request+"compra/user";
+    }
+  });
 }
 
 $(document).ready(function() {

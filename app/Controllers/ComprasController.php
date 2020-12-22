@@ -47,6 +47,7 @@ class ComprasController{
 			 $save->total_pagar=$_SESSION['Total'];
 			 $save->estatus='En Proceso';
 			 $save->direccion=$direccion;
+			 $save->tipo=$_POST['tipo'];
 			 $id = $save->add();
 
 			 for($i = 0;$i< $_SESSION['contador'];$i++){
@@ -65,10 +66,23 @@ class ComprasController{
 			 unset($_SESSION['precio']);
 			 unset($_SESSION['Total']);
 
-			$datos = $save->getVenta('id',$id);
- 			$detalle = $save->getVentaDet($_SESSION['IdUser']);
-
- 			return view('Catalogos/Compras.twig', ['compra' => $datos, 'detalle'=>$detalle, 'modelo' => 'compras','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
   	}
+
+		public function cargar(){
+			$save = new ComprasModel();
+			$file=files('image');
+
+			if($file['name'] != null){
+				$explode = explode("/", $file['type']);
+				 $save->tiket = resourceImg().rand().'.'.$explode[1];
+				$router = $file['tmp_name'];
+				$destino=$save->tiket;
+				copy($router, $destino);
+				$save->id=input('id');
+				$save->update();
+			}
+
+			redirect('compra/user');
+		}
 
 }

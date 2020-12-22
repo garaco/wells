@@ -7,12 +7,33 @@
 <div class="container-fluid">
   {% for g in compra %}
   <div class="card">
-    <h5 class="card-header bg-success text-white">Fecha: {{g.fecha|date("d/m/Y H:i:s")}}</h5>
+    <h5 class="card-header {% if g.estatus != 'En Proceso' %} bg-success {% else %}
+      bg-warning {% endif %}  text-white">Fecha: {{g.fecha|date("d/m/Y H:i:s")}}</h5>
     <div class="card-body">
       <h5 class="card-title">Estatus: {{g.estatus}} </h5>
       <label>Precio: ${{g.total_pagar|number_format(2, '.', ',')}}</label>
       <p class="card-text">Direccion: {{g.direccion}}</p>
+      <p class="card-text">Método de Pago: {{g.tipo}}</p>
+      {% if g.tipo == 'Deposito' and  g.tiket == '' %}
+      <hr>
+      <form action="{{route('compra/cargar')}}" method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-sm-2">
+              <p>Subir comprobante de pago</p>
+          </div>
 
+          <div class="col-sm-8">
+              <input class="form-control" type="file" name="image" value="" required>
+              <input type="hidden" name="id" value="{{g.id}}">
+          </div>
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-success" name="button"><i class="fa fa-check" aria-hidden="true"></i></button>
+          </div>
+        </div>
+
+      </form>
+      <hr>
+      {% endif %}
       <table>
         <tr>
           <th>Productos</th> <th>Cantidad</th>
@@ -21,7 +42,7 @@
           {% for d in detalle %}
             {% if d.id_venta == g.id %}
               <tr>
-                <td>{{d.14}}</td> <td>{{d.cantidad}}</td>
+                <td>{{d.15}}</td> <td>{{d.cantidad}}</td>
               </tr>
             {% endif %}
           {% endfor %}
@@ -29,6 +50,7 @@
       </table>
     </div>
   </div>
+  <br>
   {% endfor %}
 
 </div>
