@@ -38,6 +38,30 @@ function tipo(){
   }
 }
 
+function pagar(){
+  let valor = $("#metodo").val();
+  var url_request = window.location.protocol + "//" + window.location.host + "/wells/";
+
+  if(valor=='tarjeta'){
+    let name = $("#name").val();
+    let number = $("#number").val();
+    let mes = $("#mes").val();
+    let year = $("#year").val();
+    let cv = $("#cv").val();
+
+    if(name=="" || number=="" || mes=="" || year=="" || cv==""){
+      Swal.fire('Por favor llene todos los campos.');
+    }else{
+      window.location=url_request+"compra/save";
+
+    }
+  }else{
+    window.location=url_request+"compra/save";
+  }
+
+
+}
+
 $(document).ready(function() {
     $('#table').DataTable(
       {

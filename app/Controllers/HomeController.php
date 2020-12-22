@@ -87,6 +87,7 @@ class HomeController{
 			unset($_SESSION['nombre']);
 			unset($_SESSION['cantidad']);
 			unset($_SESSION['precio']);
+			unset($_SESSION['Total']);
 
 			$table="<tr><td></td><td></td><td> Total </td><td></td></tr>";
 

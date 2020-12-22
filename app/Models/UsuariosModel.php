@@ -77,7 +77,7 @@ class UsuariosModel extends Model {
 		}
 
 		public static function getUser($id){
-			$sql = "SELECT IdUser,NombreUser,Nombres,Apellidos,Tipo as tipo,email,
+			$sql = "SELECT IdUser,NombreUser,Nombres,Apellidos,Tipo as tipo,email,direccion,
 			aes_decrypt(password,'Quetzalcoatl') as password FROM ".self::$tablename." WHERE IdUser = '{$id}' ";
 			$query = Executor::doit($sql);
 

@@ -1,0 +1,36 @@
+{% extends 'template/temp.twig' %}
+
+{% block title 'Compras' %}
+
+{% block body %}
+
+<div class="container-fluid">
+  {% for g in compra %}
+  <div class="card">
+    <h5 class="card-header bg-success text-white">Fecha: {{g.fecha|date("d/m/Y H:i:s")}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">Estatus: {{g.estatus}} </h5>
+      <label>Precio: ${{g.total_pagar|number_format(2, '.', ',')}}</label>
+      <p class="card-text">Direccion: {{g.direccion}}</p>
+
+      <table>
+        <tr>
+          <th>Productos</th> <th>Cantidad</th>
+        </tr>
+        <tbody>
+          {% for d in detalle %}
+            {% if d.id_venta == g.id %}
+              <tr>
+                <td>{{d.14}}</td> <td>{{d.cantidad}}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

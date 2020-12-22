@@ -107,7 +107,7 @@ function vaciar(){
 function compra(id){
 
   if(id==null){
-    Swal.fire('Por favor inicie sesion para poder realizar la compra')
+    Swal.fire('Por favor inicie sesion para poder realizar la compra');
   }else{
       window.location=url_request+"compra";
   }
