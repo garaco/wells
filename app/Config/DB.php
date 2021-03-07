@@ -9,10 +9,10 @@ class DB {
 	public static $con;
 
 	function __construct(){
-		$this->user="root";
-		$this->pass="";
-		$this->host="localhost";
-		$this->ddbb="wells";
+		$this->user="comuni60_admin";
+		$this->pass="Garaco.17";
+		$this->host="162.241.61.208";
+		$this->ddbb="comuni60_tienda";
 	}
 
 	function connect(){

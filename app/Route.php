@@ -16,10 +16,10 @@ class Route{
           ['url' => 'access', 						        'ctrl' => 'AuthController@registro', 				    		'type' => 'guest'],
           ['url' => 'exist', 						        'ctrl' => 'usuariosController@exist', 				    		'type' => 'guest'],
 
-          ['url' => 'home',					    'ctrl' => 'homeController@index',	    				      'type' => 'admin'],
-          ['url' => 'home/add',					    'ctrl' => 'homeController@add',	    				      'type' => 'guest'],
-          ['url' => 'home/pendiente',					    'ctrl' => 'homeController@pendiente',	    				      'type' => 'guest'],
-          ['url' => 'home/limpiar',					    'ctrl' => 'homeController@limpiar',	    				      'type' => 'guest'],
+          ['url' => 'home',					    'ctrl' => 'HomeController@index',	    				      'type' => 'admin'],
+          ['url' => 'home/add',					    'ctrl' => 'HomeController@add',	    				      'type' => 'guest'],
+          ['url' => 'home/pendiente',					    'ctrl' => 'HomeController@pendiente',	    				      'type' => 'guest'],
+          ['url' => 'home/limpiar',					    'ctrl' => 'HomeController@limpiar',	    				      'type' => 'guest'],
 
           ['url' => 'ventas',					    'ctrl' => 'VentasController@index',	    				      'type' => 'admin'],
           ['url' => 'ventas/save',					    'ctrl' => 'VentasController@save',	    				      'type' => 'admin'],
@@ -31,29 +31,29 @@ class Route{
           ['url' => 'compra/cargar',					    'ctrl' => 'ComprasController@cargar',	    				      'type' => 'cliente'],
 
 
-          ['url' => 'usuarios',					    'ctrl' => 'usuariosController@index',	    				'type' => 'admin'],
-  			  ['url' => 'usuarios/save',				'ctrl' => 'usuariosController@save',	    					'type' => 'admin'],
-          ['url' => 'usuarios/del',				    'ctrl' => 'usuariosController@del',  						'type' => 'admin'],
+          ['url' => 'usuarios',					    'ctrl' => 'UsuariosController@index',	    				'type' => 'admin'],
+  			  ['url' => 'usuarios/save',				'ctrl' => 'UsuariosController@save',	    					'type' => 'admin'],
+          ['url' => 'usuarios/del',				    'ctrl' => 'UsuariosController@del',  						'type' => 'admin'],
 
-          ['url' => 'productos',					    'ctrl' => 'productosController@index',	    				'type' => 'admin'],
-  			  ['url' => 'productos/save',				'ctrl' => 'productosController@save',	    					'type' => 'admin'],
-          ['url' => 'productos/del',				    'ctrl' => 'productosController@del',  						'type' => 'admin'],
+          ['url' => 'productos',					    'ctrl' => 'ProductosController@index',	    				'type' => 'admin'],
+  			  ['url' => 'productos/save',				'ctrl' => 'ProductosController@save',	    					'type' => 'admin'],
+          ['url' => 'productos/del',				    'ctrl' => 'ProductosController@del',  						'type' => 'admin'],
 
-          ['url' => 'proveedores',					    'ctrl' => 'proveedoresController@index',	    				'type' => 'admin'],
-  			  ['url' => 'proveedores/save',				'ctrl' => 'proveedoresController@save',	    					'type' => 'admin'],
-          ['url' => 'proveedores/del',				    'ctrl' => 'proveedoresController@del',  						'type' => 'admin'],
+          ['url' => 'proveedores',					    'ctrl' => 'ProveedoresController@index',	    				'type' => 'admin'],
+  			  ['url' => 'proveedores/save',				'ctrl' => 'ProveedoresController@save',	    					'type' => 'admin'],
+          ['url' => 'proveedores/del',				    'ctrl' => 'ProveedoresController@del',  						'type' => 'admin'],
 
-          ['url' => 'envios',					    'ctrl' => 'enviosController@index',	    				'type' => 'admin'],
-  			  ['url' => 'envios/save',				'ctrl' => 'enviosController@save',	    					'type' => 'admin'],
-          ['url' => 'envios/del',				    'ctrl' => 'enviosController@del',  						'type' => 'admin'],
+          ['url' => 'envios',					    'ctrl' => 'EnviosController@index',	    				'type' => 'admin'],
+  			  ['url' => 'envios/save',				'ctrl' => 'EnviosController@save',	    					'type' => 'admin'],
+          ['url' => 'envios/del',				    'ctrl' => 'EnviosController@del',  						'type' => 'admin'],
 
-          ['url' => 'categorias',					    'ctrl' => 'categoriasController@index',	    				'type' => 'admin'],
-  			  ['url' => 'categorias/save',				'ctrl' => 'categoriasController@save',	    					'type' => 'admin'],
-          ['url' => 'categorias/del',				    'ctrl' => 'categoriasController@del',  						'type' => 'admin'],
+          ['url' => 'categorias',					    'ctrl' => 'CategoriasController@index',	    				'type' => 'admin'],
+  			  ['url' => 'categorias/save',				'ctrl' => 'CategoriasController@save',	    					'type' => 'admin'],
+          ['url' => 'categorias/del',				    'ctrl' => 'CategoriasController@del',  						'type' => 'admin'],
 
-          ['url' => 'descuentos',					    'ctrl' => 'descuentosController@index',	    				'type' => 'admin'],
-          ['url' => 'descuentos/save',				'ctrl' => 'descuentosController@save',	    					'type' => 'admin'],
-          ['url' => 'descuentos/del',				    'ctrl' => 'descuentosController@del',  						'type' => 'admin'],
+          ['url' => 'descuentos',					    'ctrl' => 'DescuentosController@index',	    				'type' => 'admin'],
+          ['url' => 'descuentos/save',				'ctrl' => 'DescuentosController@save',	    					'type' => 'admin'],
+          ['url' => 'descuentos/del',				    'ctrl' => 'DescuentosController@del',  						'type' => 'admin'],
 
           ['url' => 'logout', 					        'ctrl' => 'AuthController@logout', 					    	'type' => 'admin'],
     		  ['url' => 'auth', 						        'ctrl' => 'AuthController@login', 				    		'type' => 'admin'],

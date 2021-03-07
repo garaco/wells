@@ -25,7 +25,7 @@ class ComprasController{
 		$costo = $cp->getCode($_SESSION['IdUser']);
 
 		$_SESSION['Total']=$sb+$costo->envio;
-		return view('Catalogos/Comprar.twig', ['table' => $Compra, 'total'=>$sb, 'modelo' => 'compras','user'=>$_SESSION['Username'],'type'=>$_SESSION['type'], "costo"=>$costo->envio]);
+		return view('Catalogos/Comprar.twig', ['table' => $Compra, 'total'=>$sb, 'modelo' => 'compra','user'=>$_SESSION['Username'],'type'=>$_SESSION['type'], "costo"=>$costo->envio]);
     }
 
 		public function compras(){
@@ -33,7 +33,7 @@ class ComprasController{
 			$datos = $compra->getVenta('id_user',$_SESSION['IdUser']);
 			$detalle = $compra->getVentaDet($_SESSION['IdUser']);
 
-			return view('Catalogos/Compras.twig', ['compra' => $datos, 'detalle'=>$detalle, 'modelo' => 'compras','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
+			return view('Catalogos/Compras.twig', ['compra' => $datos, 'detalle'=>$detalle, 'modelo' => 'compra','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
 		}
 
     public function save(){
