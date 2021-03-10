@@ -1,5 +1,5 @@
-// var url_request = window.location.protocol + "//" + window.location.host + "/wells/requested.php";
-var url_request = window.location.protocol + "//" + window.location.host + "/requested.php";
+var url_request = window.location.protocol + "//" + window.location.host + "/wells/requested.php";
+// var url_request = window.location.protocol + "//" + window.location.host + "/requested.php";
 var spinner = '<td colspan="5" class="text-center"> <div class="spinner-border text-dark text-center"><span class="sr-only">Cargando...</span></div> </td>';
 var ajaxError = '<i class="fa fa-warning text-warning"></i> Error al cargar los datos!';
 var operation;

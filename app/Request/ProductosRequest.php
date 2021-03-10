@@ -6,7 +6,7 @@ use App\Models\ProductosModel;
 use App\Models\CategoriasModel;
 use App\Models\ProveedoresModel;
 
-class productosRequest {
+class ProductosRequest {
     function Agregar(){
         $productos= new ProductosModel();
         if ($_POST['id'] != 0)

@@ -7,7 +7,7 @@ class DescuentosController{
       $descuento = new DescuentosModel();
       $descuentos = $descuento->getAllDescuentos();
 
-			return view('Catalogos/descuentos.twig', ['descuentos' => $descuentos, 'modelo' => 'descuentos','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
+			return view('Catalogos/descuentos.twig', ['descuentos' => $descuentos, 'modelo' => 'Descuentos','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
     }
 
     public function save(){

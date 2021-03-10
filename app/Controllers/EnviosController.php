@@ -7,7 +7,7 @@ class EnviosController{
       $envio = new EnviosModel();
       $envios = $envio->getAll('id');
 
-			return view('Catalogos/envios.twig', ['envios' => $envios, 'modelo' => 'envios','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
+			return view('Catalogos/envios.twig', ['envios' => $envios, 'modelo' => 'Envios','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
     }
 
     public function save(){

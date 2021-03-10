@@ -7,7 +7,7 @@ class ProveedoresController{
       $proveedor = new ProveedoresModel();
       $proveedores = $proveedor->getAll('id');
 
-			return view('Catalogos/proveedores.twig', ['proveedores' => $proveedores, 'modelo' => 'proveedores','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
+			return view('Catalogos/proveedores.twig', ['proveedores' => $proveedores, 'modelo' => 'Proveedores','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
     }
 
     public function save(){

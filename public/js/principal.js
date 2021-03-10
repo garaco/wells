@@ -1,5 +1,5 @@
-// var url_request = window.location.protocol + "//" + window.location.host + "/wells/";
-var url_request = window.location.protocol + "//" + window.location.host;
+var url_request = window.location.protocol + "//" + window.location.host + "/wells/";
+// var url_request = window.location.protocol + "//" + window.location.host;
 $("#menu-toggle").click(function (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");

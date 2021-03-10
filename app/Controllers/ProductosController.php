@@ -9,7 +9,7 @@ class ProductosController{
       $proc = new ProductosModel();
       $procducto = $proc->getAll('id');
 
-		 return view('Catalogos/productos.twig', ['productos' => $procducto, 'modelo' => 'productos','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
+		 return view('Catalogos/productos.twig', ['productos' => $procducto, 'modelo' => 'Productos','user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
     }
 
     public function save(){
@@ -27,7 +27,7 @@ class ProductosController{
 			$save->precio=$_POST['precio'];
 			$save->modelo=$_POST['modelo'];
 			$save->stock=$_POST['stock'];
-			
+
 
 			if($_FILES['imagen']['name'] != null){
         $explode = explode("/", $_FILES['imagen']['type']);
