@@ -14,7 +14,7 @@ class AuthController {
 
     public function index() {
       $proc = new ProductosModel();
-      $procducto = $proc->getAll('id');
+      $procducto = $proc->getAllProducto();
       if(isset($_SESSION['Username'])){
           return view('index.twig',['productos' => $procducto, 'user'=>$_SESSION['Username'],'type'=>$_SESSION['type']]);
       }else{
@@ -73,7 +73,7 @@ class AuthController {
         $_SESSION['Username'] = $user;
         $_SESSION['Nombre']  = $name;
         $_SESSION['IdUser']    = $auth;
-        $_SESSION['type']  = 'admin';
+        $_SESSION['type']  = 'cliente';
        redirect('index');
 
     }

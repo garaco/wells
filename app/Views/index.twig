@@ -27,9 +27,19 @@
       {% for g in productos %}
       <div class="col-sm-4">
         <div class="card">
+
+        {% if g.descuento != 0 %}
+          <div style="justify-content:center;">
+              <img src="{{ resource('img/descuento.png') }}" style="width:30%;" class="card-img-top" alt="...">
+          </div>
+        {% endif %}
+
+        
+
           <div style="justify-content:center;">
               <img src="{{g.imagen}}" style="width:50%;" class="card-img-top" alt="...">
           </div>
+          
 
         <div class="card-body">
           <h5 class="card-title">{{ g.nombre }}</h5>
@@ -80,7 +90,7 @@
           </div>
           <div class="container">
             <h5>
-              WELL´S HARMONY es una marca registrada preocupada por la calidad de vida de las personas, por lo cual se ofrecen productos naturales capaces de complementar su alimentación. En la elaboración de los productos de la marca WELL´S HARMONY, se emplean los extractos más puros y de mejor calidad, además de materia prima de última tecnología. Vendemos productos naturales capaces de complementar la nutrición de nuestros clientes.
+              WELL'S HARMONY es una marca registrada preocupada por la calidad de vida de las personas, por lo cual se ofrecen productos naturales capaces de complementar su alimentación. En la elaboración de los productos de la marca WELL'S HARMONY, se emplean los extractos más puros y de mejor calidad, además de materia prima de última tecnología. Vendemos productos naturales capaces de complementar la nutrición de nuestros clientes.
             </h5>
             <br>
             <div class="row">
@@ -95,11 +105,18 @@
               </div>
             </div>
             <br>
-            <h4>“MOVIMIENTOS FIRMES Y SEGUROS CON WELL´S HARMONY”.</h4>
+            <h4>“MOVIMIENTOS FIRMES Y SEGUROS CON WELL'S HARMONY”.</h4>
             <br>
             <strong> Contacto </strong><br>
             <h4> <u>2941109196</u></h4>
           </div>
+
+          <div>
+      <h5> búscanos en Facebook </h5>
+      <a href="https://www.facebook.com/Wells-Harmony-Bienestar-en-armon%C3%ADa-114814639883030/">
+        <img style="width:5%;" src="{{ resource('img/fb.png') }}" alt="...">
+      <a>
+      </div>
       </div>
       <br><br>
     </div>
@@ -131,7 +148,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" onclick="compra('{{user}}');">Realizar Compra</button>
+          <button type="button" id="comp" class="btn btn-success" onclick="compra('{{user}}');">Realizar Compra</button>
           <button type="button" class="btn btn-danger" onclick="vaciar();">Vaciar Carrito</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>

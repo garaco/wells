@@ -1,4 +1,6 @@
 
+
+
 function password(){
   let pass = $('#pass').val();
   let pass2 = $('#pass2').val();

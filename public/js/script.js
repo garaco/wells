@@ -1,9 +1,31 @@
+
+var input=  document.getElementById('number');
+input.addEventListener('input',function(){
+  if (this.value.length > 12) 
+     this.value = this.value.slice(0,12); 
+});
+
+
+var mes=  document.getElementById('mes');
+mes.addEventListener('input',function(){
+  if (this.value.length > 2) 
+     this.value = this.value.slice(0,2); 
+});
+
+
+var year=  document.getElementById('year');
+year.addEventListener('input',function(){
+  if (this.value.length > 4) 
+     this.value = this.value.slice(0,4); 
+})
+
 $("#menu-toggle").click(function (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
     $('.user').toggleClass("user-show");
 
 });
+
 
 $(function () {
     var Accordion = function (el, multiple) {
@@ -36,6 +58,26 @@ function tipo(){
     $("#tarjeta").css("display","none");
     $("#deposito").css("display","block");
   }
+}
+
+function valideKey(evt){
+  
+  console.log(evt)
+  //if (evt.value.length > 12) 
+   // evt.value = evt.value.slice(0,12); 
+     
+  // code is the decimal ASCII representation of the pressed key.
+  var code = (evt.which) ? evt.which : evt.keyCode;
+  
+  if(code==8) { // backspace.
+    return true;
+  } else if(code>=48 && code<=57) { // is a number.
+    return true;
+  } else{ // other keys.
+    return false;
+  }
+
+
 }
 
 function pagar(){

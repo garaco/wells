@@ -43,7 +43,7 @@ class ProductosRequest {
 
             <div class="row form-group">
                 <div class="col-md-4 ">
-                    <label for="name" class="control-label">Categoia</label>
+                    <label for="name" class="control-label">categoría</label>
                     <?php $categoria = new CategoriasModel();
                       $categoria = $categoria->getAll('id'); ?>
                       <select class="form-control" name="categoria">

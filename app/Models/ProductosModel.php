@@ -47,13 +47,22 @@ class ProductosModel extends Model {
 			Executor::doit($sql);
 		}
 
-		public function getAllProducto($empresa=0,$ord='id'){
-			$sql = "SELECT l.*,(Select Nombre from lineas_productos where IdLinea = l.IdLinea ) as Linea,
-			(Select Nombre from proveedores where IdProveedor = l.IdProveedor ) as Proveedor,
-			IFNULL(((select IFNULL(sum(Cantidad),0) from ingresos where id_producto = l.IdProducto and id_empresa =  {$empresa})-
-			(select IFNULL(sum(Cantidad),0) from venta_detalle where IdProducto = l.IdProducto  and id_empresa =  {$empresa}
-		  and (select v.estado from venta as v where v.id = IdVenta limit 1) != 'cancelado' )),0) as existencias
-			FROM ".self::$tablename." as l ORDER BY {$ord}";
+		public function getAllProducto(){
+			$sql = "Select 
+			IFNULL((SELECT p.precio_descuento from descuento_produc as p 
+			WHERE NOW() BETWEEN TIMESTAMP(p.dia_inicio,p.hora_inicio) AND TIMESTAMP(p.dia_final,p.hora_final)
+			and producto.id = p.id_producto limit 1),0) as descuento,
+			id,
+			codigo,
+			nombre,
+			id_categoria,
+			if( (select descuento) = 0, precio, (select descuento) ) as precio,
+			modelo,
+			descripcion,
+			stock,
+			id_proveedor,
+			imagen
+			from producto";
 			$query = Executor::doit($sql);
 
 			return self::many($query[0]);

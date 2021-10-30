@@ -3,7 +3,12 @@
 function resource( $val ) {
     $dir = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $explode = explode("/", $dir);
-    $url = "https://{$explode[0]}/{$explode[1]}/public/{$val}";
+    if (isset($_SERVER['HTTPS'])) {
+        $url = "https://{$explode[0]}/{$explode[1]}/public/{$val}";
+    } else {
+        $url = "http://{$explode[0]}/{$explode[1]}/public/{$val}";
+    }
+    
     return $url;
 }
 
@@ -11,7 +16,13 @@ function route( $val ) {
     $dir = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $explode = explode("/", $dir);
 	  $val = strtolower($val);
-    $url = "https://{$explode[0]}/{$explode[1]}/{$val}";
+
+    if (isset($_SERVER['HTTPS'])) {
+        $url = "https://{$explode[0]}/{$explode[1]}/{$val}";
+    } else {
+        $url = "http://{$explode[0]}/{$explode[1]}/{$val}";
+    }  
+    
     return $url;
 }
 

@@ -11,6 +11,7 @@ $('#operationModal').on('show.bs.modal', function (event) {
     var id = button.data('id');
     var modal = $(this);
 
+
     $.ajax({
         url: url_request,
         type: 'POST',

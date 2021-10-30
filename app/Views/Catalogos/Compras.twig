@@ -1,4 +1,4 @@
-{% extends 'template/temp.twig' %}
+{% extends 'template/temps.twig' %}
 
 {% block title 'Compras' %}
 
@@ -53,6 +53,42 @@
   <br>
   {% endfor %}
 
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="titulo" class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="cuerpo" style="text-align: justify;" ></p>
+          <div style="display:none;" id="section-table">
+            <table id="table" class="table thead-light table-bordered table-condensed table-hover">
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Preio</th>
+                <th>Total por producto</th>
+              </tr>
+              <tbody id="table-body">
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="comp" class="btn btn-success" onclick="compra('{{user}}');">Realizar Compra</button>
+          <button type="button" class="btn btn-danger" onclick="vaciar();">Vaciar Carrito</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
